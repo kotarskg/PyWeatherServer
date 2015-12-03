@@ -1,6 +1,6 @@
 """XML-RPC server implementation serving Weather Report data.
 
-.. moduleauthor:: Grzegorz Kotarski <grzegorz.kotarski.com>
+.. moduleauthor:: grzes71
 
 """
 
