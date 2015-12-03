@@ -1,6 +1,6 @@
 """Configuration for the application.
 
-.. moduleauthor:: Grzegorz Kotarski <grzegorz.kotarski.com>
+.. moduleauthor:: grzes71
 
 """
 import logging
