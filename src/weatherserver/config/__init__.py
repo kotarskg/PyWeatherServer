@@ -1,6 +1,6 @@
 """Application config default values.
 
-.. moduleauthor:: Grzegorz Kotarski <grzegorz.kotarski.com>
+.. moduleauthor:: grzes71
 
 """
 
