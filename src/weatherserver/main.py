@@ -9,7 +9,7 @@ from configparser import SafeConfigParser
 import weatherserver.config as cfg
 
 from weatherserver.config.configuration import create_configuration
-from weatherserver.model.configmodel import ConfigWeatherModel
+from weatherserver.model.configmodel import WeatherModel
 from weatherserver.service.weatherservice import WeatherService
 
 
@@ -39,14 +39,14 @@ def do_parse_args():
     return parser.parse_args()
 
 
-def create_weather_config(site_config):
+def create_weather_model(site_config):
     """Create weather model using configuration data.
     """
     temperature = site_config.getfloat(cfg.OPT_TEMPERATURE)
     pressure = site_config.getfloat(cfg.OPT_PRESSURE)
     humidity = site_config.getint(cfg.OPT_HUMIDITY)
     windspeed = site_config.getfloat(cfg.OPT_WINDSPEED)
-    return ConfigWeatherModel(temperature, pressure, humidity, windspeed)
+    return WeatherModel(temperature, pressure, humidity, windspeed)
 
 
 def main():
@@ -57,8 +57,8 @@ def main():
     logging.basicConfig(level=args.loglevel)
     conf.read_file(args.data)
 
-    app_config = create_configuration(conf[cfg.SEC_CONF], args)
+    configuration = create_configuration(conf[cfg.SEC_CONF], args)
 
-    weather_model = create_weather_config(conf[cfg.SEC_SITE])
+    weather_model = create_weather_model(conf[cfg.SEC_SITE])
 
-    WeatherService.start_weather_service(app_config, weather_model)
+    WeatherService.start_weather_service(configuration, weather_model)
