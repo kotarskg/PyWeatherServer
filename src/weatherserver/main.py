@@ -1,4 +1,4 @@
-"""Main application module.
+"""Main Weather Server application module.
 
 .. moduleauthor:: grzes71
 
@@ -45,14 +45,14 @@ def do_parse_args():
 def main():
     """Main application entry.
     """
-    args = do_parse_args()
-    logging.basicConfig(level=args.loglevel)
+    parsed_args = do_parse_args()
+    logging.basicConfig(level=parsed_args.loglevel)
 
-    conf = SafeConfigParser()
-    conf.read_file(args.data)
+    config_parser = SafeConfigParser()
+    config_parser.read_file(parsed_args.data)
 
-    configuration = create_configuration(conf[cfg.SEC_CONF], args)
-    weather_model = create_weather_model(conf[cfg.SEC_SITE])
+    configuration = create_configuration(config_parser[cfg.SEC_CONF], parsed_args)
+    weather_model = create_weather_model(config_parser[cfg.SEC_SITE])
     simple_server = create_weather_service(configuration, weather_model)
     
     try:
