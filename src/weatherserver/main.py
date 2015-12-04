@@ -1,4 +1,7 @@
 """Main application module.
+
+.. moduleauthor:: grzes71
+
 """
 
 import argparse
