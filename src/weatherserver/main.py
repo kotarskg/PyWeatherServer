@@ -9,7 +9,7 @@ from configparser import SafeConfigParser
 import weatherserver.config as cfg
 
 from weatherserver.config.configuration import create_configuration
-from weatherserver.model.configmodel import WeatherModel
+from weatherserver.model.weathermodel import WeatherModel
 from weatherserver.service.weatherservice import WeatherService
 
 
