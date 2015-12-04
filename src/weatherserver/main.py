@@ -12,8 +12,8 @@ from configparser import SafeConfigParser
 import weatherserver.config as cfg
 
 from weatherserver.config.configuration import create_configuration
-from weatherserver.model.weathermodel import WeatherModel
-from weatherserver.service.weatherservice import WeatherService
+from weatherserver.model.weathermodel import create_weather_model
+from weatherserver.service.weatherservice import create_weather_service
 
 
 def logger():
@@ -42,16 +42,6 @@ def do_parse_args():
     return parser.parse_args()
 
 
-def create_weather_model(site_config):
-    """Create weather model using configuration data.
-    """
-    temperature = site_config.getfloat(cfg.OPT_TEMPERATURE)
-    pressure = site_config.getfloat(cfg.OPT_PRESSURE)
-    humidity = site_config.getint(cfg.OPT_HUMIDITY)
-    windspeed = site_config.getfloat(cfg.OPT_WINDSPEED)
-    return WeatherModel(temperature, pressure, humidity, windspeed)
-
-
 def main():
     """Main application entry.
     """
@@ -61,7 +51,13 @@ def main():
     conf.read_file(args.data)
 
     configuration = create_configuration(conf[cfg.SEC_CONF], args)
-
     weather_model = create_weather_model(conf[cfg.SEC_SITE])
+    simple_server = create_weather_service(configuration, weather_model)
+    
+    try:
+        logger().info('Use Control-C to exit')
+        simple_server.serve_forever()
+    except KeyboardInterrupt:
+        logger().debug("Exiting")
+    
 
-    WeatherService.start_weather_service(configuration, weather_model)

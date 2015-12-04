@@ -93,23 +93,19 @@ class WeatherService:
         return '{}({}, {})'.format(self.__class__.__name__,
                                    self.label, str(self.model))
 
-    @classmethod
-    def start_weather_service(cls, config, weather_model):
-        """Create and register service, then start server.
 
-        :param config: Configuration instance.
-        :param weather_model: WeatherModel instance.
-        """
-        logging.debug("Initializing %s config = %s %s",
-                      cls.__name__, config, weather_model)
+def create_weather_service(config, weather_model):
+    """Create and register service, then start server.
 
-        weather_service = cls(config.name, weather_model)
-        simple_server = SimpleXMLRPCServer((config.host, config.port))
-        simple_server.register_multicall_functions()
-        simple_server.register_introspection_functions()
-        simple_server.register_instance(weather_service)
-        try:
-            logger().info('Use Control-C to exit')
-            simple_server.serve_forever()
-        except KeyboardInterrupt:
-            logger().debug("Exiting")
+    :param config: Configuration instance.
+    :param weather_model: WeatherModel instance.
+    :return: SimpleXMLRPCServer instance.
+    :rtype: SimpleXMLRPCServer
+    """
+
+    weather_service = WeatherService(config.name, weather_model)
+    simple_server = SimpleXMLRPCServer((config.host, config.port))
+    simple_server.register_multicall_functions()
+    simple_server.register_introspection_functions()
+    simple_server.register_instance(weather_service)
+    return simple_server
