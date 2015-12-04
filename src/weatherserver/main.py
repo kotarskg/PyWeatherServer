@@ -8,7 +8,7 @@ from configparser import SafeConfigParser
 
 import weatherserver.config as cfg
 
-from weatherserver.config.configuration import Configuration
+from weatherserver.config.configuration import create_configuration
 from weatherserver.model.configmodel import ConfigWeatherModel
 from weatherserver.service.weatherservice import WeatherService
 
@@ -57,7 +57,7 @@ def main():
     logging.basicConfig(level=args.loglevel)
     conf.read_file(args.data)
 
-    app_config = Configuration(conf[cfg.SEC_CONF], args)
+    app_config = create_configuration(conf[cfg.SEC_CONF], args)
 
     weather_model = create_weather_config(conf[cfg.SEC_SITE])
 
