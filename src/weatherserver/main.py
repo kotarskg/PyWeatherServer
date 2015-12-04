@@ -45,9 +45,10 @@ def do_parse_args():
 def main():
     """Main application entry.
     """
-    conf = SafeConfigParser()
     args = do_parse_args()
     logging.basicConfig(level=args.loglevel)
+
+    conf = SafeConfigParser()
     conf.read_file(args.data)
 
     configuration = create_configuration(conf[cfg.SEC_CONF], args)
