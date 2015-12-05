@@ -1,4 +1,7 @@
 """Configuration module.
+
+.. moduleauthor:: grzes71
+
 """
 
 from collections import namedtuple
