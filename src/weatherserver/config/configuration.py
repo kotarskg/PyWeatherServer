@@ -18,7 +18,7 @@ def create_configuration(conf, args):
     :param  args: command line arguments.
     :type conf: ArgParse.
     :return: Configuration instance
-    :rtype: Configuration
+    :rtype: weatherserver.config.Configuration
     """
     def get_val(opt_name, args_value):
         return conf.get(opt_name) if not args_value else args_value
