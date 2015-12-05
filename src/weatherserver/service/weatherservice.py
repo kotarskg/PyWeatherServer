@@ -70,7 +70,6 @@ class WeatherService:
 
     def pressure(self, identity):
         """Service method to provide pressure value.
-
         :param identity: Requester identity
         :return: Pressure 
         :rtype: float
@@ -80,7 +79,6 @@ class WeatherService:
 
     def datetime(self, identity):
         """Service method to provide current server date and time.
-
         :param identity: Requester identity
         :return: Data and time
         :rtype: datetime
@@ -91,7 +89,6 @@ class WeatherService:
 
     def name(self, identity):
         """Service method to provide site name.
-
         :param identity: Requester identity
         :return: Name of the location
         :rtype: string
@@ -109,7 +106,6 @@ class WeatherService:
 
 def create_weather_service(config, weather_model):
     """Create and register service, then start server.
-
     :param config: Configuration instance
     :param weather_model: WeatherModel instance
     :return: SimpleXMLRPCServer instance
