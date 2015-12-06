@@ -19,8 +19,8 @@ class WeatherService:
     """
     def __init__(self, label, model):
         """WeatherService constructor.
-        :param label: Name of the service.
-        :param model: Model of the data for the service.
+        :param label: Name of the service
+        :param model: Model of the data for the service
         """
         self._label = label
         self._model = model
@@ -28,60 +28,70 @@ class WeatherService:
     @property
     def model(self):
         """Getter for weather model
+        :return: Weather model instance
+        :rtype: WeatherModel
         """
         return self._model
 
     @property
     def label(self):
         """Getter for label
+        :return: Name of the service
+        :rtype: string
         """
         return self._label
 
     def temperature(self, identity):
-        """Service method to Get temperature.
-
-        :param identity: Requester identity.
+        """Service method to provide temperature.
+        :param identity: Requester identity
+        :return: Temperature
+        :rtype: float
         """
         logger().debug("Identity %s asks %s for temperature = %s", identity, self.label, self.model.temperature)
         return self.model.temperature
 
     def humidity(self, identity):
-        """Service method to Get humidity in percent.
-
-        :param identity: Requester identity.
+        """Service method to provide humidity in percent.
+        :param identity: Requester identity
+        :return: Humidity
+        :rtype: integer
         """
         logger().debug("Identity %s asks %s for humidity = %s", identity, self.label, self.model.humidity)
         return self.model.humidity
 
     def windspeed(self, identity):
-        """Service method to Get wind speed.
-
-        :param identity: Requester identity.
+        """Service method to provide wind speed.
+        :param identity: Requester identity
+        :return: Wind speed
+        :rtype: float
         """
         logger().debug("Identity %s asks %s for wind speed = %s", identity, self.label, self.model.windspeed)
         return self.model.windspeed
 
     def pressure(self, identity):
-        """Service method to Get pressure value.
-
-        :param identity: Requester identity.
+        """Service method to provide pressure value.
+        :param identity: Requester identity
+        :return: Pressure 
+        :rtype: float
         """
         logger().debug("Identity %s asks %s for pressure = %s", identity, self.label, self.model.pressure)
         return self.model.pressure
 
     def datetime(self, identity):
-        """Service method to Get current server date and time.
-
-        :param identity: Requester identity.
+        """Service method to provide current server date and time.
+        :param identity: Requester identity
+        :return: Data and time
+        :rtype: datetime
         """
         now = datetime.now()
         logger().debug("Identity %s asks %s for time = %s", identity, self.label, now)
         return now
 
     def name(self, identity):
-        """Service method to Get site name.
-
-        :param identity: Requester identity.
+        """Service method to provide site name.
+        :param identity: Requester identity
+        :return: Name of the location
+        :rtype: string
         """
         logger().debug("Identity %s asks %s for name", identity, self.label)
         return self.label
@@ -96,10 +106,9 @@ class WeatherService:
 
 def create_weather_service(config, weather_model):
     """Create and register service, then start server.
-
-    :param config: Configuration instance.
-    :param weather_model: WeatherModel instance.
-    :return: SimpleXMLRPCServer instance.
+    :param config: Configuration instance
+    :param weather_model: WeatherModel instance
+    :return: SimpleXMLRPCServer instance
     :rtype: SimpleXMLRPCServer
     """
 
