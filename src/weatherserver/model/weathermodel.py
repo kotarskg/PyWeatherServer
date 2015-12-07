@@ -13,9 +13,10 @@ WeatherModel = namedtuple('WeatherModel', 'temperature pressure humidity windspe
 def create_weather_model(site_config):
     """Create weather model using configuration data.
 
-    :param site_config: Configuration instance
-    :return: Weather model instance.
-    :rtype: WeatherModel
+    :param site_config: Config section for Site
+    :type site_config: configparser.SectionProxy
+    :return: Weather model instance
+    :rtype: weatherserver.model.WeatherModel
     """
     temperature = site_config.getfloat(cfg.OPT_TEMPERATURE)
     pressure = site_config.getfloat(cfg.OPT_PRESSURE)

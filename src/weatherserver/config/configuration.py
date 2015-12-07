@@ -7,16 +7,17 @@
 from collections import namedtuple
 
 import weatherserver.config as cfg
+from weatherserver.config import OPT_NAME, OPT_HOST, OPT_PORT
 
-Configuration = namedtuple('Configuration', 'name host port')
+Configuration = namedtuple('Configuration', ' '.join((OPT_NAME, OPT_HOST, OPT_PORT)))
 
 
 def create_configuration(conf, args):
     """Create and return Configuration instance.
 
-    :param  conf: configuration
-    :type conf: ConfigParser
-    :param  args: command line arguments
+    :param  conf: Config section for config
+    :type conf: configparser.SectionProxy
+    :param  args: Command line arguments
     :type args: ArgParse
     :return: Configuration instance
     :rtype: weatherserver.config.Configuration

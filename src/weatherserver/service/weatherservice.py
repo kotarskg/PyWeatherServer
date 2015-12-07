@@ -32,7 +32,7 @@ class WeatherService:
         """Getter for service model.
 
         :return: Weather model instance
-        :rtype: WeatherModel
+        :rtype: weatherserver.model.WeatherModel
         """
         return self._model
 
@@ -118,7 +118,9 @@ def create_weather_service(config, weather_model):
     """Create and register service, then start server
 
     :param config: Configuration instance
+    :type config: weatherserver.config.Configuration
     :param weather_model: WeatherModel instance
+    :type weather_model: weatherserver.model.WeatherModel
     :return: SimpleXMLRPCServer instance
     :rtype: SimpleXMLRPCServer
     """
