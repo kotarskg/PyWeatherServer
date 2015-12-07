@@ -42,7 +42,7 @@ class TestModel(unittest.TestCase):
         self.site_config = config_parser[SEC_SITE]
 
     def test_weather_model(self):
-        """test weather model type
+        """test weather model type.
         """
         weather_model = WeatherModel(TEST_TEMPERATURE_VALUE,
                                      TEST_HUMIDITY_VALUE,
@@ -54,7 +54,7 @@ class TestModel(unittest.TestCase):
         self.assertEqual(weather_model.windspeed, TEST_PRESSURE_VALUE)
 
     def test_create_weather_model(self):
-        """test method creating weather model from config
+        """test method creating weather model from config.
         """
         model = create_weather_model(self.site_config)
         self.assertEqual(model.temperature, self.site_config.getfloat(OPT_TEMPERATURE))
