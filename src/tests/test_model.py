@@ -61,3 +61,7 @@ class TestModel(unittest.TestCase):
         self.assertEqual(model.humidity, self.site_config.getfloat(OPT_HUMIDITY))
         self.assertEqual(model.pressure, self.site_config.getfloat(OPT_PRESSURE))
         self.assertEqual(model.windspeed, self.site_config.getfloat(OPT_WINDSPEED))
+
+
+if __name__ == '__main__':
+    unittest.main()
