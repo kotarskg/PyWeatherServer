@@ -14,10 +14,10 @@ Configuration = namedtuple('Configuration', 'name host port')
 def create_configuration(conf, args):
     """Create and return Configuration instance.
 
-    :param  conf: configuration.
-    :type conf: ConfigParser.
-    :param  args: command line arguments.
-    :type conf: ArgParse.
+    :param  conf: configuration
+    :type conf: ConfigParser
+    :param  args: command line arguments
+    :type args: ArgParse
     :return: Configuration instance
     :rtype: weatherserver.config.Configuration
     """
