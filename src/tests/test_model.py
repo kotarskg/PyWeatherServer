@@ -20,12 +20,13 @@ TEST_WINDSPEED_VALUE = 15.5
 TEST_PRESSURE_VALUE = 1020
 
 TEST_CONFIG = """
-[site]
+[{}]
 temperature = {}
 humidity = {}
 windspeed = {}
 pressure = {}
-""".format(TEST_TEMPERATURE_VALUE,
+""".format(SEC_SITE,
+           TEST_TEMPERATURE_VALUE,
            TEST_HUMIDITY_VALUE,
            TEST_WINDSPEED_VALUE,
            TEST_PRESSURE_VALUE)
