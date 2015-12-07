@@ -9,13 +9,15 @@ Usage::
                            [-n NAME] [-s SERVER] [-p PORT] -d DATA
 
 Arguments::
-   
-   -h  show this help message and exit
-   -d DATA  file with weather data
-   -l LOGLEVEL  one of *DEBUG INFO WARNING ERROR*
-   -s SERVER  hostname
-   -n NAME  service name
-   -p PORT  port to listen
+  
+  -h, --help            show this help message and exit
+  -d DATA, --data DATA  File with weather data
+  -l {DEBUG,INFO,WARNING,ERROR}, --loglevel {DEBUG,INFO,WARNING,ERROR}
+                        logging level (default DEBUG)
+  -n NAME, --name NAME  name of the service
+  -s SERVER, --server SERVER
+                        host to listen
+  -p PORT, --port PORT  port to listen
 
 Sample `.ini` file with fake weather data is provided for convinience.::
    
