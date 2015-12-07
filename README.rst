@@ -7,16 +7,15 @@ Usage::
    
    python -m weatherserver [-h] [-l {DEBUG,INFO,WARNING,ERROR}] 
                            [-n NAME] [-s SERVER] [-p PORT] -d DATA
-   
+
 Arguments::
    
    -h  show this help message and exit
    -d DATA  file with weather data
    -l LOGLEVEL  one of *DEBUG INFO WARNING ERROR*
-   -n NAME  name of the service
-   -s SERVER  host to listen
+   -s SERVER  hostname
+   -n NAME  service name
    -p PORT  port to listen
-
 
 Sample `.ini` file with fake weather data is provided for convinience.::
    
