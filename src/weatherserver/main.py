@@ -17,7 +17,10 @@ from weatherserver.service.weatherservice import create_weather_service
 
 
 def logger():
-    """Get logger.
+    """Get logger instance.
+
+    :return: logger instance
+    :rtype: logging.Logger
     """
     return logging.getLogger(__name__)
 
@@ -54,11 +57,9 @@ def main():
     configuration = create_configuration(config_parser[cfg.SEC_CONF], parsed_args)
     weather_model = create_weather_model(config_parser[cfg.SEC_SITE])
     simple_server = create_weather_service(configuration, weather_model)
-    
+
     try:
         logger().info('Use Control-C to exit')
         simple_server.serve_forever()
     except KeyboardInterrupt:
         logger().debug("Exiting")
-    
-
