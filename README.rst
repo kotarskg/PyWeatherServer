@@ -10,7 +10,7 @@ Usage::
 Arguments::
   
   -h, --help            show this help message and exit
-  -d DATA, --data DATA  File with weather data
+  -d DATA, --data DATA  file with weather data
   -l {DEBUG,INFO,WARNING,ERROR}, --loglevel {DEBUG,INFO,WARNING,ERROR}
                         logging level (default DEBUG)
   -n NAME, --name NAME  name of the service
@@ -24,7 +24,7 @@ Sample `.ini` file with fake weather data is available::
    [config]
    port = 9000
    host = localhost
-   name = Location Name
+   name = Location name
    
    ; fake weather data
    [site]
