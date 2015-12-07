@@ -11,7 +11,11 @@ from xmlrpc.server import SimpleXMLRPCServer
 
 
 def logger():
-    """Get logger instance"""
+    """Get logger instance.
+
+    :return: logger instance
+    :rtype: logging.Logger
+    """
     return logging.getLogger(__name__)
 
 
@@ -22,7 +26,9 @@ class WeatherService:
         """WeatherService constructor.
 
         :param label: Name of the service
+        :type label: string
         :param model: Model of the data for the service
+        :type model: weatherserver.model.WeatherModel
         """
         self._label = label
         self._model = model
@@ -49,6 +55,7 @@ class WeatherService:
         """Service method to provide temperature.
 
         :param identity: Requester identity
+        :type identity: string
         :return: Temperature
         :rtype: float
         """
@@ -59,6 +66,7 @@ class WeatherService:
         """Service method to provide humidity in percent.
 
         :param identity: Requester identity
+        :type identity: string
         :return: Humidity
         :rtype: integer
         """
@@ -69,6 +77,7 @@ class WeatherService:
         """Service method to provide wind speed.
 
         :param identity: Requester identity
+        :type identity: string
         :return: Wind speed
         :rtype: float
         """
@@ -79,6 +88,7 @@ class WeatherService:
         """Service method to provide pressure value.
 
         :param identity: Requester identity
+        :type identity: string
         :return: Pressure
         :rtype: float
         """
@@ -89,6 +99,7 @@ class WeatherService:
         """Service method to provide current server date and time.
 
         :param identity: Requester identity
+        :type identity: string
         :return: Data and time
         :rtype: datetime
         """
@@ -100,6 +111,7 @@ class WeatherService:
         """Service method to provide site name.
 
         :param identity: Requester identity
+        :type identity: string
         :return: Name of the location
         :rtype: string
         """
@@ -121,7 +133,7 @@ def create_weather_service(config, weather_model):
     :type config: weatherserver.config.Configuration
     :param weather_model: WeatherModel instance
     :type weather_model: weatherserver.model.WeatherModel
-    :return: SimpleXMLRPCServer instance
+    :return: Server instance
     :rtype: SimpleXMLRPCServer
     """
     weather_service = WeatherService(config.name, weather_model)
@@ -129,4 +141,5 @@ def create_weather_service(config, weather_model):
     simple_server.register_multicall_functions()
     simple_server.register_introspection_functions()
     simple_server.register_instance(weather_service)
+    logger().debug("Created Weather Service: %s", weather_service)
     return simple_server

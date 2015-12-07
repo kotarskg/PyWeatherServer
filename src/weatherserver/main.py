@@ -17,7 +17,11 @@ from weatherserver.service.weatherservice import create_weather_service
 
 
 def logger():
-    """Get logger instance"""
+    """Get logger instance.
+
+    :return: logger instance
+    :rtype: logging.Logger
+    """
     return logging.getLogger(__name__)
 
 
