@@ -5,8 +5,7 @@ PyWeatherServer
 
 Usage::
    
-   python -m weatherserver [-h] [-l {DEBUG,INFO,WARNING,ERROR}] 
-                           [-n NAME] [-s SERVER] [-p PORT] -d DATA
+   python -m weatherserver [-h] [-l {DEBUG,INFO,WARNING,ERROR}] [-n NAME] [-s SERVER] [-p PORT] -d DATA
 
 Arguments::
   
