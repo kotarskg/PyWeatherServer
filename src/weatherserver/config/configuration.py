@@ -10,7 +10,7 @@ from collections import namedtuple
 import weatherserver.config as cfg
 from weatherserver.config import OPT_NAME, OPT_HOST, OPT_PORT
 
-Configuration = namedtuple('Configuration', ' '.join((OPT_NAME, OPT_HOST, OPT_PORT)))
+Configuration = namedtuple('Configuration', (OPT_NAME, OPT_HOST, OPT_PORT))
 
 
 def logger():

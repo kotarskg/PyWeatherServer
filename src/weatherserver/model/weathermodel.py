@@ -9,7 +9,10 @@ from collections import namedtuple
 
 import weatherserver.config as cfg
 
-WeatherModel = namedtuple('WeatherModel', 'temperature pressure humidity windspeed')
+WeatherModel = namedtuple('WeatherModel', (cfg.OPT_TEMPERATURE, 
+                                           cfg.OPT_PRESSURE,
+                                           cfg.OPT_HUMIDITY, 
+                                           cfg.OPT_WINDSPEED))
 
 
 def logger():
