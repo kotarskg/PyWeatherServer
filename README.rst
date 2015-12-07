@@ -19,7 +19,7 @@ Arguments::
                         host to listen
   -p PORT, --port PORT  port to listen
 
-Sample `.ini` file with fake weather data is provided for convinience.::
+Sample `.ini` file with fake weather data is available::
    
    ; location config
    [config]
