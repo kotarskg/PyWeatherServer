@@ -11,6 +11,7 @@ from xmlrpc.server import SimpleXMLRPCServer
 
 
 def logger():
+    """Get logger instance"""
     return logging.getLogger(__name__)
 
 
@@ -71,7 +72,7 @@ class WeatherService:
     def pressure(self, identity):
         """Service method to provide pressure value.
         :param identity: Requester identity
-        :return: Pressure 
+        :return: Pressure
         :rtype: float
         """
         logger().debug("Identity %s asks %s for pressure = %s", identity, self.label, self.model.pressure)
@@ -111,7 +112,6 @@ def create_weather_service(config, weather_model):
     :return: SimpleXMLRPCServer instance
     :rtype: SimpleXMLRPCServer
     """
-
     weather_service = WeatherService(config.name, weather_model)
     simple_server = SimpleXMLRPCServer((config.host, config.port))
     simple_server.register_multicall_functions()
