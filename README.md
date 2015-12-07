@@ -1,12 +1,12 @@
 # PyWeatherServer
 **Fake weather service to test XML-RPC communication.**
 
-Usage::
+**Usage:**
     
     python -m weatherserver [-h] [-l {DEBUG,INFO,WARNING,ERROR}] 
                             [-n NAME] [-s SERVER] [-p PORT] -d DATA
    
-Arguments::
+**Arguments:**
     
     -h  show this help message and exit
     -d DATA  file with weather data
@@ -15,7 +15,7 @@ Arguments::
     -s SERVER  host to listen
     -p PORT  port to listen
 
-**Sample `.ini` file with fake weather data is provided for convinience.**::
+**Sample `.ini` file with fake weather data is provided for convinience:**
     
     ; location config
     [config]
