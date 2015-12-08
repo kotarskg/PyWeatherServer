@@ -33,6 +33,12 @@ def create_configuration(conf, args):
     :rtype: weatherserver.config.Configuration
     """
     def get_val(opt_name, args_value):
+        """Get value from args if it is not available in config file section.
+        :param opt_name: Option name
+        :type opt_name: str
+        :param args_value: Value in args
+        :return: Configuration value
+        """
         return conf.get(opt_name) if not args_value else args_value
 
     name = get_val(cfg.OPT_NAME, args.name)
