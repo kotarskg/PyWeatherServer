@@ -34,6 +34,7 @@ def create_configuration(conf, args):
     """
     def get_val(opt_name, args_value):
         """Get value from args if it is not available in config file section.
+        
         :param opt_name: Option name
         :type opt_name: str
         :param args_value: Value in args
