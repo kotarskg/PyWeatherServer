@@ -7,7 +7,7 @@
 import argparse
 import logging
 
-from configparser import SafeConfigParser
+from configparser import ConfigParser
 
 import weatherserver.config as cfg
 
@@ -51,7 +51,7 @@ def main():
     parsed_args = do_parse_args()
     logging.basicConfig(level=parsed_args.loglevel)
 
-    config_parser = SafeConfigParser()
+    config_parser = ConfigParser()
     config_parser.read_file(parsed_args.data)
 
     configuration = create_configuration(config_parser[cfg.SEC_CONF], parsed_args)
