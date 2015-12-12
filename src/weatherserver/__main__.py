@@ -4,8 +4,8 @@
 
 """
 
+from weatherserver.main import main
+
 
 if __name__ == '__main__':
-    """Call main function"""
-    from weatherserver.main import main
     main()
